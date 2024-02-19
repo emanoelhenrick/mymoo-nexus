@@ -1,4 +1,4 @@
-import { prisma } from '../../prisma/prisma'
+import { prisma } from '../../config/prisma/prisma'
 
 class PrismaDevicesRepository {
   async findById (id: string) {

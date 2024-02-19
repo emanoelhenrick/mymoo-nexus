@@ -1,8 +1,11 @@
+import 'dotenv/config'
 import { app } from './app'
 
-app.listen({
+const PORT = 10000
+
+void app.listen({
   host: '0.0.0.0',
-  port: 10000
+  port: PORT
 }).then(() => {
-  console.log('MyMoo Nexus Server running...')
+  console.log(`MymMoo Nexus Server is running on port ${PORT}`)
 })

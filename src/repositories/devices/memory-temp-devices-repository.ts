@@ -28,7 +28,8 @@ export class InMemoryTempDevicesRepository {
   }
 
   public async remove (id: string) {
-    this.TempDevices = this.TempDevices.filter(dev => dev.id !== id)
+    const updatedDevices = this.TempDevices.filter(dev => dev.id !== id)
+    this.TempDevices = updatedDevices
   }
 }
 
