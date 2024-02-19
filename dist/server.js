@@ -42,9 +42,6 @@ var __async = (__this, __arguments, generator) => {
   });
 };
 
-// src/server.ts
-var import_config7 = require("dotenv/config");
-
 // src/app.ts
 var import_fastify = __toESM(require("fastify"));
 
@@ -208,6 +205,13 @@ function updateDevice(deviceId) {
   });
 }
 
+// src/services/devices/find-device-by-id.ts
+function findDeviceById(deviceId) {
+  return __async(this, null, function* () {
+    return yield deviceDB.findById(deviceId);
+  });
+}
+
 // src/http/controllers/devices/update-device-controller.ts
 var API_KEY3 = process.env.API_KEY;
 function updateDeviceController(req, res) {
@@ -216,7 +220,10 @@ function updateDeviceController(req, res) {
     if (!queryParams.deviceId)
       return res.status(404).send("error: device id is null");
     if (queryParams.key !== API_KEY3)
-      return res.status(403).send("invalid api key");
+      return res.status(401).send("invalid api key");
+    const device = yield findDeviceById(queryParams.deviceId);
+    if (!device)
+      return res.status(401).send();
     yield updateDevice(queryParams.deviceId);
     res.status(200).send();
   });
