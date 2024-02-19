@@ -7,5 +7,5 @@ void app.listen({
   host: '0.0.0.0',
   port: PORT
 }).then(() => {
-  console.log(`MymMoo Nexus Server is running on port ${PORT}`)
+  console.log(`MyMoo Nexus Server is running on port ${PORT}`)
 })

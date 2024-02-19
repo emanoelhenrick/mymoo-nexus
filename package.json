@@ -5,7 +5,7 @@
   "main": "src/server.ts",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "start": "tsx src/server.ts",
+    "start": "node dist/server.js",
     "build": "tsc",
     "test": "vitest"
   },
@@ -19,6 +19,7 @@
     "@types/node": "^20.11.19",
     "eslint-config-standard-with-typescript": "^34.0.1",
     "prisma": "^5.9.1",
+    "tsup": "^8.0.2",
     "typescript": "^4.9.5",
     "vitest": "^0.31.4"
   },
